@@ -1,22 +1,24 @@
 
- function executar(){
- 
-  var nome = document.getElementById("nome").value;
+function executar() {
+    let resultado = "";
 
-  var telefone = (  document.getElementById("telefone").value   );
+    for(let contador = 1; contador <= 3; contador++) {
 
-  var teste = telefone.startsWith("11")
+    let nome = document.getElementById("nome" + contador).value;
+    let telefone = document.getElementById("telefone" + contador).value;
+                
+        if(telefone.startsWith("11")) {
+            resultado += nome + "<br>";
+        }
+    }
+            
+    if(resultado === "") {
 
-  if (telefone.startsWith("11") ) {
+        document.getElementById("resultado").innerHTML = "Nenhum usuário com DDD 11 encontrado.";
 
-    alert(telefone);
-    console.log(nome);
-    console.log(telefone);
+    } else {
 
-  } else {
+        document.getElementById("resultado").innerHTML = "Usuários com DDD 11:<br>" + resultado;
 
-    alert("DDD não é 11.");
-
-  }
-
+    }
 }
